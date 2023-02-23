@@ -1,0 +1,42 @@
+.Recipes {
+  display: flex;
+
+  padding: 3rem 2rem;
+  width: 1257px;
+  margin: 0 auto;
+}
+
+.Recipe {
+  background: #fff;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 3px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Recipe-title {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.Recipe-time {
+  color: #b38a8a;
+}
+
+.Recipe-description {
+  line-height: 1.5;
+  color: #7b7b7b;
+}
+
+.Recipe-btn {
+  background: #532aae;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  border: 2px solid black;
+}
+.Recipe-btn:hover {
+  background: transparent;
+  color: #000;
+}
