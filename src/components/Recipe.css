@@ -1,5 +1,6 @@
 .Recipes {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
   padding: 3rem 2rem;
   width: 1257px;
