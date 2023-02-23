@@ -34,9 +34,10 @@
   color: #fff;
   cursor: pointer;
   transition: all 0.2s linear;
-  border: 2px solid black;
+  border: 2px solid transparent;
 }
 .Recipe-btn:hover {
   background: transparent;
   color: #000;
+  border: 2px solid black;
 }
