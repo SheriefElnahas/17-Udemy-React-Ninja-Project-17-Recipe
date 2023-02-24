@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom';
 import './Recipe.css';
+import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 

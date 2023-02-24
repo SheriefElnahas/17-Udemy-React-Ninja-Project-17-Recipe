@@ -1,7 +1,6 @@
 import './Header.css';
 import { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import CreateRecipe from './CreateRecipe';
+import { Link } from 'react-router-dom';
 
 function Header({ getSearchTerm }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,8 +25,6 @@ function Header({ getSearchTerm }) {
           <Link className="Header-btn" to="/create-recipe">
             Create Recipe
           </Link>
-
-          {/* <button ></button> */}
         </nav>
       </div>
     </header>
