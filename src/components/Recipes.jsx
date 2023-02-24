@@ -2,6 +2,7 @@ import './Recipe.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Recipe from './Recipe';
+import RecipeDetails from './RecipeDetails';
 
 function Recipes({ searchValue }) {
   const [recipes, setRecipes] = useState([]);
@@ -12,13 +13,13 @@ function Recipes({ searchValue }) {
 
   const filteredRecipes = recipes.data?.filter((recipe) => recipe.title.includes(searchValue));
 
-  console.log(filteredRecipes);
   return (
-    <section className="Recipes">
-      {filteredRecipes?.map(({ id, title, description, method, cookingTime }) => {
-        return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} />;
-      })}
-    </section>
+    // <section className="Recipes">
+    //   {filteredRecipes?.map(({ id, title, description, method, cookingTime }) => {
+    //     return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} />;
+    //   })}
+    // </section>
+    <RecipeDetails />
   );
 }
 
