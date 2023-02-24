@@ -1,12 +1,27 @@
+import { useParams } from 'react-router-dom';
 import './Recipe.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function RecipeDetails() {
+  const [recipe, setRecipe] = useState('');
+  const params = useParams();
+
+  const recipeId = params.recipeId;
+  useEffect(() => {
+    axios.get(`http://localhost:3000/recipes/${recipeId}`).then((res) => setRecipe(res));
+  }, []);
+
   return (
     <div className="Recipe-Details">
-      <h2 className="Recipe-Details-heading">Greek Salad</h2>
-      <p className="Recipe-Details-time">Takes: 35 mintues to cook</p>
-      <p className="Recipe-Details-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod enim iste, aut magnam distinctio inventore delectus accusamus incidunt commodi architecto.</p>
+      {/* {recipe} */}
+      {recipe && (
+        <div>
+          <h2 className="Recipe-Details-heading">{recipe.data.title}</h2>
+          <p className="Recipe-Details-time">Takes: {recipe.data.cookingTime} mintues to cook</p>
+          <p className="Recipe-Details-description">{recipe.data.description}</p>
+        </div>
+      )}
     </div>
   );
 }

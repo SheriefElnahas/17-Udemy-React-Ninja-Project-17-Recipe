@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Recipe from './Recipe';
 import RecipeDetails from './RecipeDetails';
+import { Outlet } from 'react-router-dom';
 
 function Recipes({ searchValue }) {
   const [recipes, setRecipes] = useState([]);
@@ -16,8 +17,9 @@ function Recipes({ searchValue }) {
   return (
     <section className="Recipes">
       {filteredRecipes?.map(({ id, title, description, method, cookingTime }) => {
-        return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} />;
+        return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} id={id} />;
       })}
+      <Outlet />
     </section>
     // <RecipeDetails />
   );
