@@ -1,8 +1,16 @@
 import './Header.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Header() {
+function Header({ getSearchTerm }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  useEffect(() => {
+    getSearchTerm(searchTerm);
+  }, [searchTerm]);
+
   return (
     <header className="Header">
       <div className="Header-wrapper">
@@ -12,7 +20,7 @@ function Header() {
           <label className="Header-nav-label" htmlFor="search">
             Search:
           </label>
-          <input className="Header-nav-input" type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+          <input className="Header-nav-input" type="text" value={searchTerm} onChange={handleInputChange} />
           <button className="Header-btn">Create Recipe</button>
         </nav>
       </div>
