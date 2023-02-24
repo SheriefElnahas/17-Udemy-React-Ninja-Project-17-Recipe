@@ -1,5 +1,7 @@
 import './Header.css';
 import { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import CreateRecipe from './CreateRecipe';
 
 function Header({ getSearchTerm }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +23,11 @@ function Header({ getSearchTerm }) {
             Search:
           </label>
           <input className="Header-nav-input" type="text" value={searchTerm} onChange={handleInputChange} />
-          <button className="Header-btn">Create Recipe</button>
+          <Link className="Header-btn" to="/create-recipe">
+            Create Recipe
+          </Link>
+
+          {/* <button ></button> */}
         </nav>
       </div>
     </header>

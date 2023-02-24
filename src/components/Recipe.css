@@ -62,3 +62,73 @@
   padding: 0;
   margin-top: 2rem;
 }
+
+.Create-Recipe {
+  max-width: 400px;
+  margin: 5rem auto 0 auto;
+}
+
+.Create-Recipe-heading {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  margin-right: 4.5rem;
+}
+.Create-Recipe p {
+  margin-top: 1.5rem;
+}
+.Create-Recipe label {
+  display: block;
+  margin-bottom: 5px;
+  color: #7c6a6a;
+  font-size: 1.1rem;
+}
+
+.Create-Recipe input {
+  width: 80%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+}
+.Create-Recipe .Create_Recipe-ingredients__input {
+  width: 61%;
+}
+.Create-Recipe-btn__add {
+  padding: 0.5rem 1.5rem;
+  margin-left: 8px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background: #532aae;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.Create-Recipe-btn__add:hover {
+  background: teal;
+}
+.Create-Recipe-ingredients__pargraph {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: #7c6a6a;
+}
+.Create-Recipe textarea {
+  border: none;
+  padding: 0.5rem;
+}
+
+.Create-Recipe-btn__submit {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background: #532aae;
+  transition: all 0.2s linear;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.Create-Recipe-btn__submit:hover {
+  background: #4747e5;
+}

@@ -14,12 +14,12 @@ function Recipes({ searchValue }) {
   const filteredRecipes = recipes.data?.filter((recipe) => recipe.title.includes(searchValue));
 
   return (
-    // <section className="Recipes">
-    //   {filteredRecipes?.map(({ id, title, description, method, cookingTime }) => {
-    //     return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} />;
-    //   })}
-    // </section>
-    <RecipeDetails />
+    <section className="Recipes">
+      {filteredRecipes?.map(({ id, title, description, method, cookingTime }) => {
+        return <Recipe key={id} title={title} description={description} method={method} cookingTime={cookingTime} />;
+      })}
+    </section>
+    // <RecipeDetails />
   );
 }
 
