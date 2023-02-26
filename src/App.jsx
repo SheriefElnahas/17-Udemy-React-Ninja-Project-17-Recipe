@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import Header from './components/Header';
-import RecipeList from './components/RecipeList';
-import CreateRecipe from './components/CreateRecipe';
-import RecipeDetails from './components/RecipeDetails';
+import Header from './UI/Header';
+import RecipeList from './recipe/RecipeList';
+import CreateRecipe from './recipe/CreateRecipe';
+import RecipeDetails from './recipe/RecipeDetails';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
