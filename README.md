@@ -4,7 +4,7 @@ Add your favorite cooking recipe.
 
 ## Project Description
 
-The idea of this project is taken from Net Ninja React Course on Udemy. I just saw the first video and took the idea. But my implemntation is compltetly different.
+The idea for this project is taken from Net Ninja React Course on Udemy. I just saw the first video and took the idea. But the implementation is completely different.
 
 ## Getting Started
 
