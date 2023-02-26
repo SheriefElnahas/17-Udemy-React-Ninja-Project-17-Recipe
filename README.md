@@ -8,9 +8,6 @@ The idea of this project is taken from Net Ninja React Course on Udemy. I just s
 
 ## Getting Started
 
-This project was created using vite not through create-react app therefore you have to run this project using this command
-npm run dev
-Also, this project uses json-server package as a database, therefore,
 This project was created using vite not create-react-app. Also, this project is using json-server package as a database. To run the project use this command
 
 ```
