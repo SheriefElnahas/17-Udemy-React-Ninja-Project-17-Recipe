@@ -29,6 +29,15 @@ npm run start
 - Working With Vite
 - React Router
 
+## Buggs & Future Improvments
+
+- Recipes Does not re-render after you create a new recipe
+- Allow The user to enter ingredients one by one and click add button
+- After clicking on add button, the ingredients should appear under the label
+- Handle error cases in axios
+- Make a better UI by telling the user that he have to fill the entire form for the recipe to be created
+- Create a custom hook to handle get and post methods
+
 ## Feedback
 
 If you have any feedback, please reach out to me at sheriefelnahas5@gmail.com
