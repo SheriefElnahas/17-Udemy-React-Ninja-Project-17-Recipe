@@ -3,23 +3,27 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function CreateRecipe(props) {
-  const [formData, setFormData] = useState({ title: '', ingredients: '', description: '', cookingTime: '' });
-  const [recipe, setRecipe] = useState({});
-  const [id, setId] = useState(props.id);
+function CreateRecipe({ previousRecipeId }) {
+  const [recipeData, setRecipeData] = useState({ title: '', ingredients: '', description: '', cookingTime: '' });
+  const [newRecipe, setNewRecipe] = useState({});
+  const [newId, setnewId] = useState(previousRecipeId);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (recipe.title) {
-      axios.post('http://localhost:3000/recipes', recipe).then((res) => console.log(res));
+    const isRecipe = newRecipe.title && newRecipe.ingredients && newRecipe.description && newRecipe.cookingTime;
+
+    // Only make the request and navigate if the recipe is created
+    if (isRecipe) {
+      axios.post('http://localhost:3000/recipes', newRecipe);
       navigate('/');
     }
-  }, [recipe, id]);
+  }, [newRecipe, newId]);
 
   const handleChange = (e) => {
-    setFormData((prevFormData) => {
+    setRecipeData((prevRecipeData) => {
       return {
-        ...prevFormData,
+        ...prevRecipeData,
         [e.target.name]: e.target.value,
       };
     });
@@ -28,18 +32,24 @@ function CreateRecipe(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setId((prevId) => prevId + 1);
+    // Increment The Id By 1
+    setnewId((prevId) => prevId + 1);
 
+    // Extract all the values that the user had entered
+    const { title, ingredients, description, cookingTime } = recipeData;
+
+    // Construct A New Recipe
     const recipe = {
-      id: id,
-      title: formData.title,
-      ingredients: formData.ingredients,
-      description: formData.description,
-      cookingTime: formData.cookingTime,
+      id: newId,
+      title,
+      ingredients,
+      description,
+      cookingTime,
     };
 
-    setRecipe(recipe);
-    setFormData({ title: '', ingredients: '', description: '', cookingTime: '' });
+    // Change the state and clear the form
+    setNewRecipe(recipe);
+    setRecipeData({ title: '', ingredients: '', description: '', cookingTime: '' });
   };
 
   return (
@@ -47,26 +57,24 @@ function CreateRecipe(props) {
       <h2 className="Create-Recipe-heading">Add a New Recipe</h2>
       <p>
         <label htmlFor="title">Recipe Title:</label>
-        <input type="text" name="title" id="title" value={formData.title} onChange={handleChange} />
+        <input type="text" name="title" id="title" value={recipeData.title} onChange={handleChange} />
       </p>
       <p>
         <label htmlFor="ingredients">Recipe Ingredients</label>
-        <input className="Create_Recipe-ingredients__input" type="text" id="ingredients" value={formData.ingredients} onChange={handleChange} name="ingredients" />
+        <input className="Create_Recipe-ingredients__input" type="text" id="ingredients" value={recipeData.ingredients} onChange={handleChange} name="ingredients" />
         <button className="Create-Recipe-btn__add">Add</button>
         <small className="Create-Recipe-ingredients__pargraph">Current Ingredients: </small>
       </p>
       <p>
         <label htmlFor="recipe-description">Recipe Method: </label>
-        <textarea value={formData.description} onChange={handleChange} name="description" id="recipe-description" cols="40.5" rows="3"></textarea>
+        <textarea value={recipeData.description} onChange={handleChange} name="description" id="recipe-description" cols="40.5" rows="3"></textarea>
       </p>
       <p>
         <label htmlFor="time">Cooking Time(minutes)</label>
-        <input value={formData.cookingTime} onChange={handleChange} name="cookingTime" type="number" id="time" />
+        <input value={recipeData.cookingTime} onChange={handleChange} name="cookingTime" type="number" id="time" />
       </p>
 
-      {/* <Link to="/"> */}
       <button className="Create-Recipe-btn__submit">Submit</button>
-      {/* </Link> */}
     </form>
   );
 }

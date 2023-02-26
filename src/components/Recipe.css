@@ -1,13 +1,13 @@
-.Recipes {
+/**************** RecipeList Component  ****************/
+.RecipeList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* display: flex; */
-
   padding: 3rem 2rem;
   width: 1257px;
   margin: 0 auto;
 }
 
+/**************** Recipe Component  ****************/
 .Recipe {
   background: #fff;
   margin: 1rem;
@@ -44,6 +44,7 @@
   border: 2px solid black;
 }
 
+/**************** RecipeDetails Component  ****************/
 .Recipe-Details {
   background: #fff;
   width: 900px;
@@ -64,6 +65,7 @@
   margin-top: 2rem;
 }
 
+/**************** Create Recipe Component  ****************/
 .Create-Recipe {
   max-width: 400px;
   margin: 5rem auto 0 auto;

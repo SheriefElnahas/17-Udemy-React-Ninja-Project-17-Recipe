@@ -8,13 +8,13 @@ function RecipeDetails() {
   const params = useParams();
 
   const recipeId = params.recipeId;
+
   useEffect(() => {
     axios.get(`http://localhost:3000/recipes/${recipeId}`).then((res) => setRecipe(res));
   }, []);
 
   return (
     <div className="Recipe-Details">
-      {/* {recipe} */}
       {recipe && (
         <div>
           <h2 className="Recipe-Details-heading">{recipe.data.title}</h2>
