@@ -11,7 +11,7 @@ function CreateRecipe(props) {
 
   useEffect(() => {
     if (recipe.title) {
-      axios.post('http://localhost:3000/recipes', recipe);
+      axios.post('http://localhost:3000/recipes', recipe).then((res) => console.log(res));
       navigate('/');
     }
   }, [recipe, id]);

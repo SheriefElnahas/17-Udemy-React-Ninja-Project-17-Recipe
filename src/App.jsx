@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
@@ -16,11 +16,17 @@ function App() {
 
   const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
+  const fetchRecipes = useCallback(() => {
     axios.get('http://localhost:3000/recipes').then((jsonResponse) => setRecipes(jsonResponse));
   }, []);
 
-  const filteredRecipes = recipes.data?.filter((recipe) => recipe.title.includes(searchValue));
+  useEffect(() => {
+    // axios.get('http://localhost:3000/recipes').then((jsonResponse) => setRecipes(jsonResponse));
+    // console.log(recipes);
+    fetchRecipes();
+  }, []);
+
+  const filteredRecipes = recipes.data?.filter((recipe) => recipe.title.toLowerCase().includes(searchValue));
 
   return (
     <React.Fragment>
